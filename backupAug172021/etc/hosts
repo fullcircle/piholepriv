@@ -1,0 +1,14 @@
+
+127.0.0.1	localhost
+
+# Private address for this instance
+172.19.3.82	e2b386a8
+
+# Address used for global traffic routing
+172.19.3.83	fly-global-services
+
+# Private address for this instance
+2604:1380:45d1:2801::2078:3	e2b386a8
+
+# Address in the 6PN private network for this app
+fdaa:0:843:a7b:ab2:0:2078:2	fly-local-6pn

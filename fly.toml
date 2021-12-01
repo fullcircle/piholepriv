@@ -1,0 +1,42 @@
+# fly.toml file generated for piholepriv on 2021-02-11T10:38:22-05:00
+
+app = "piholepriv"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = "80"
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"
+
+  [[services.tcp_checks]]
+    interval = 10000
+    timeout = 2000
+    grace_period = "1m"
+
+[[services]]
+  internal_port = 53
+  protocol = "udp"
+
+  [[services.ports]]
+    port = "53"
+
+[mounts]
+source="pihole_data"
+destination="/etc/pihole"
+
+
+# [experimental]
+  # private_network=true
